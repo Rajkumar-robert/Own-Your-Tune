@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -54,8 +54,13 @@ const Navbar = () => {
 };
 
 const MenuItem = ({ icon, text }) => {
+  const location = useLocation();
+
   return (
-    <Link to={text.toLowerCase()}>
+    <Link
+      to={`/${text.toLowerCase()}`}
+   
+    >
       <div className="flex items-center gap-[15px] menu-item px-5 py-3 rounded-md cursor-pointer">
         <img src={icon} alt={text} className="w-[17px] h-[17px]" />
         <p className="text-base">{text}</p>
