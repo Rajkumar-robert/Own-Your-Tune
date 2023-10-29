@@ -1,8 +1,24 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Layout from "./Layout";
 import PurchaseMusicCard from "../components/PurchaseMusicCard";
 import FileUploadIPFS from "../components/FileUploadIPFS";
+import { TransactionContext } from "../context/TransactionContext";
+import { UserStateContext } from "../context/UserStateContext";
+
+
+  
+const Input = ({ type, value, handleChange }) => (
+  <input
+    type={type}
+    step="0.0001"
+    value={value}
+    onChange={handleChange}
+    className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+  />
+);
+
+const UploadPage = () => {
 
 const musicData = [
   {
@@ -53,40 +69,7 @@ const musicData = [
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "desp.jpeg",
   },
-];
-
-const UploadPage = () => {
-  // const [purchasedSongs, setPurchasedSongs] = useState([]); // Array to store purchased songs
-
-  // useEffect(() => {
-  //   // Web3.js setup
-  //   const provider = new Web3.providers.HttpProvider("your_provider_url");
-  //   const web3 = new Web3(provider);
-
-  //   // Load the smart contract ABI and address
-  //   const contractABI = []; // Replace with your smart contract's ABI
-  //   const contractAddress = "0x..."; // Replace with your smart contract's address
-
-  //   // Create a contract instance
-  //   const contract = new web3.eth.Contract(contractABI, contractAddress);
-
-  //   // Define a function to retrieve purchased songs
-  //   async function getPurchasedSongs() {
-  //     try {
-  //       // Replace this with your contract's function to get purchased songs
-  //       const purchasedData = await contract.methods.getPurchasedSongs().call();
-
-  //       // Update the state with the fetched data
-  //       setPurchasedSongs(purchasedData);
-  //     } catch (error) {
-  //       console.error("Error retrieving purchased songs:", error);
-  //     }
-  //   }
-
-  //   // Call the function to retrieve purchased songs
-  //   getPurchasedSongs();
-  // }, []); // The empty dependency array ensures this effect runs once when the component mounts
-
+];const UploadPage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [formData, setFormData] = useState({
     songName: "",
@@ -146,7 +129,7 @@ const UploadPage = () => {
             <FileUploadIPFS />
             <label className="block mb-2">
               Song Name:
-              <input
+              <Input
                 type="text"
                 name="songName"
                 value={formData.songName}
@@ -156,7 +139,7 @@ const UploadPage = () => {
             </label>
             <label className="block mb-2">
               Song Genre:
-              <input
+              <Input
                 type="text"
                 name="songGenre"
                 value={formData.songGenre}
@@ -166,7 +149,7 @@ const UploadPage = () => {
             </label>
             <label className="block mb-2">
               Artist:
-              <input
+              <Input
                 type="text"
                 name="artist"
                 value={formData.artist}
