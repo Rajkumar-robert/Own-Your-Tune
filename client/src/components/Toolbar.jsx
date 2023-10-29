@@ -19,8 +19,8 @@ const Toolbar = () => {
     <div className="flex justify-between items-center h-[100px] w-[1270px]">
       <div className="flex justify-around items-center w-[600px] ">
         <div className="flex gap-[40px]">
-          <img className="w-8 h-8" src="/left.png" alt="" />
-          <img className="w-8 h-8" src="/right.png" alt="" />
+          <img className="w-8 h-8" src="../images/left.png" alt="" />
+          <img className="w-8 h-8" src="../images/right.png" alt="" />
         </div>
 
         <div className="flex">

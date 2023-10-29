@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-
   return (
     <div className="flex flex-col h-[100vh] w-[250px] bg-gradient-to-b from-[#766A62] via-[#514D51] to-[#313D49] bg-opacity-60 backdrop-filter backdrop-blur-lg shadow-md px-4 text-white">
       <div className="mb-4 flex flex-col justify-center items-center mt-10">
@@ -58,10 +57,7 @@ const Navbar = () => {
 
 const MenuItem = ({ icon, text, navtext }) => {
   return (
-    <Link
-      to={`/${navtext}`}
-   
-    >
+    <Link to={`/${navtext}`}>
       <div className="flex items-center gap-[15px] menu-item px-5 py-3 rounded-md cursor-pointer">
         <img src={icon} alt={text} className="w-[17px] h-[17px]" />
         <p className="text-base">{text}</p>

@@ -6,6 +6,7 @@ import TestPage from "./pages/TestPage";
 import UploadPage from "./pages/UploadPage";
 import PurchasedPage from "./pages/PurchasedPage";
 
+
 const App = () => (
   <>
     <Router>
@@ -15,6 +16,7 @@ const App = () => (
         <Route path="/test" element={<TestPage />} />
         <Route path="/publishes" element={<UploadPage />} />
         <Route path="/purchases" element={<PurchasedPage />} />
+        <Route path="/buy" element={<Welcome/>}/>
       </Routes>
     </Router>
   </>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "./Layout";
 import PurchaseMusicCard from "../components/PurchaseMusicCard";
 import FileUploadIPFS from "../components/FileUploadIPFS";
@@ -56,36 +56,36 @@ const musicData = [
 ];
 
 const UploadPage = () => {
-  const [purchasedSongs, setPurchasedSongs] = useState([]); // Array to store purchased songs
+  // const [purchasedSongs, setPurchasedSongs] = useState([]); // Array to store purchased songs
 
-  useEffect(() => {
-    // Web3.js setup
-    const provider = new Web3.providers.HttpProvider("your_provider_url");
-    const web3 = new Web3(provider);
+  // useEffect(() => {
+  //   // Web3.js setup
+  //   const provider = new Web3.providers.HttpProvider("your_provider_url");
+  //   const web3 = new Web3(provider);
 
-    // Load the smart contract ABI and address
-    const contractABI = []; // Replace with your smart contract's ABI
-    const contractAddress = "0x..."; // Replace with your smart contract's address
+  //   // Load the smart contract ABI and address
+  //   const contractABI = []; // Replace with your smart contract's ABI
+  //   const contractAddress = "0x..."; // Replace with your smart contract's address
 
-    // Create a contract instance
-    const contract = new web3.eth.Contract(contractABI, contractAddress);
+  //   // Create a contract instance
+  //   const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-    // Define a function to retrieve purchased songs
-    async function getPurchasedSongs() {
-      try {
-        // Replace this with your contract's function to get purchased songs
-        const purchasedData = await contract.methods.getPurchasedSongs().call();
+  //   // Define a function to retrieve purchased songs
+  //   async function getPurchasedSongs() {
+  //     try {
+  //       // Replace this with your contract's function to get purchased songs
+  //       const purchasedData = await contract.methods.getPurchasedSongs().call();
 
-        // Update the state with the fetched data
-        setPurchasedSongs(purchasedData);
-      } catch (error) {
-        console.error("Error retrieving purchased songs:", error);
-      }
-    }
+  //       // Update the state with the fetched data
+  //       setPurchasedSongs(purchasedData);
+  //     } catch (error) {
+  //       console.error("Error retrieving purchased songs:", error);
+  //     }
+  //   }
 
-    // Call the function to retrieve purchased songs
-    getPurchasedSongs();
-  }, []); // The empty dependency array ensures this effect runs once when the component mounts
+  //   // Call the function to retrieve purchased songs
+  //   getPurchasedSongs();
+  // }, []); // The empty dependency array ensures this effect runs once when the component mounts
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [formData, setFormData] = useState({

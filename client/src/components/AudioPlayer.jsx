@@ -106,7 +106,7 @@ const AudioPlayer = (props) => {
       </div>
 
       <div className="ml-5">
-        <img width={75} height={75} src="/shape.png" alt="" />
+        <img width={75} height={75} src="../images/closer.jpeg" alt="" />
       </div>
       <div className="flex">
         {/* current time */}
