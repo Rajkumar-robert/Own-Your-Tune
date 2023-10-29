@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-
 import { contractABI, contractAddress } from "../utils/constants";
-
 export const TransactionContext = React.createContext();
-
 const { ethereum } = window;
+
 
 const createEthereumContract = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
@@ -55,7 +53,7 @@ export const TransactionsProvider = ({ children }) => {
 
   const checkIfWalletIsConnect = async () => {
     try {
-      if (!ethereum) return alert("Please install MetaMask.");
+      if (!ethereum) return alert("Please install MetaMask or XDCPay.");
 
       const accounts = await ethereum.request({ method: "eth_accounts" });
 
@@ -145,6 +143,7 @@ export const TransactionsProvider = ({ children }) => {
     checkIfTransactionsExists();
   }, [transactionCount]);
 
+  
   return (
     <TransactionContext.Provider
       value={{

@@ -11,7 +11,7 @@ import {UserStateContext} from "../context/UserStateContext";
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-const Input = ({ placeholder, name, type, value, handleChange,handleGetUser }) => (
+const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
     placeholder={placeholder}
     type={type}
@@ -25,17 +25,7 @@ const Input = ({ placeholder, name, type, value, handleChange,handleGetUser }) =
 const Welcome = () => {
   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
 
-  const {getUserState,setUserState} = useContext(UserStateContext);
-  const handleGetUser=(e)=>{
-    if (true)
-    getUserState()
-
-  }
-
-  const handleSetUser =(e)=>{
-    setUserState()
-  }
-
+console.log("wel",formData)
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
 
@@ -126,20 +116,7 @@ const Welcome = () => {
                 </button>
               )}
           </div>
-          <button
-                  type="button"
-                  onClick={handleGetUser}
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
-                >
-                  Get User
-                </button>
-                <button
-                  type="button"
-                  onClick={handleSetUser}
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
-                >
-                  Set User
-                </button>
+      
         </div>
       </div>
     </div>
