@@ -19,8 +19,8 @@ const Toolbar = () => {
     <div className="flex justify-between items-center h-[100px] w-[1270px]">
       <div className="flex justify-around items-center w-[600px] ">
         <div className="flex gap-[40px]">
-          <img className="w-8 h-8" src="/left.png" alt="" />
-          <img className="w-8 h-8" src="/right.png" alt="" />
+          <img className="w-8 h-8" src="../images/left.png" alt="" />
+          <img className="w-8 h-8" src="../images/right.png" alt="" />
         </div>
 
         <div className="flex">
@@ -29,10 +29,14 @@ const Toolbar = () => {
       </div>
 
       <div className="flex justify-normal items-center">
-        <img src="/menu.png" alt="" className="w-10 h-10 mr-10" />
         <div className="mr-10">
           {currentAccount ? (
-            <div className=" cursor-pointer">
+            <div className=" cursor-pointer flex items-center">
+              <img
+                src="../images/grad.jpeg"
+                alt=""
+                className="w-10 h-10 mr-5 rounded-full"
+              />
               <p className="font-bold tracking-wide">
                 {ellipseAddress(currentAccount)}
               </p>
