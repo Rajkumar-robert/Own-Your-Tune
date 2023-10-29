@@ -61,12 +61,12 @@ const AudioPlayer = (props) => {
   };
 
   const backThirty = () => {
-    progressBar.current.value = Number(progressBar.current.value - 30);
+    progressBar.current.value = Number(progressBar.current.value - 15);
     changeRange();
   };
 
   const forwardThirty = () => {
-    progressBar.current.value = Number(progressBar.current.value + 30);
+    progressBar.current.value = Number(progressBar.current.value + 15);
     changeRange();
   };
 

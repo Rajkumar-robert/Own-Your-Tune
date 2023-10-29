@@ -42,6 +42,7 @@ const MusicCard = (props) => {
               <button className="bg-green-500 text-white px-3 py-1 rounded">
                 Wishlist
               </button>
+              
             </div>
           </div>
         )}

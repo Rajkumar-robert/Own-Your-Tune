@@ -53,7 +53,40 @@ const musicData = [
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "desp.jpeg",
   },
-];const UploadPage = () => {
+];
+
+const UploadPage = () => {
+  const [purchasedSongs, setPurchasedSongs] = useState([]); // Array to store purchased songs
+
+  useEffect(() => {
+    // Web3.js setup
+    const provider = new Web3.providers.HttpProvider("your_provider_url");
+    const web3 = new Web3(provider);
+
+    // Load the smart contract ABI and address
+    const contractABI = []; // Replace with your smart contract's ABI
+    const contractAddress = "0x..."; // Replace with your smart contract's address
+
+    // Create a contract instance
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    // Define a function to retrieve purchased songs
+    async function getPurchasedSongs() {
+      try {
+        // Replace this with your contract's function to get purchased songs
+        const purchasedData = await contract.methods.getPurchasedSongs().call();
+
+        // Update the state with the fetched data
+        setPurchasedSongs(purchasedData);
+      } catch (error) {
+        console.error("Error retrieving purchased songs:", error);
+      }
+    }
+
+    // Call the function to retrieve purchased songs
+    getPurchasedSongs();
+  }, []); // The empty dependency array ensures this effect runs once when the component mounts
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [formData, setFormData] = useState({
     songName: "",
@@ -110,7 +143,7 @@ const musicData = [
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-md p-4 w-96">
             <h2 className="text-2xl font-bold mb-4">Publish Song</h2>
-            <FileUploadIPFS/>
+            <FileUploadIPFS />
             <label className="block mb-2">
               Song Name:
               <input

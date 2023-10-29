@@ -29,10 +29,14 @@ const Toolbar = () => {
       </div>
 
       <div className="flex justify-normal items-center">
-        <img src="/menu.png" alt="" className="w-10 h-10 mr-10" />
         <div className="mr-10">
           {currentAccount ? (
-            <div className=" cursor-pointer">
+            <div className=" cursor-pointer flex items-center">
+              <img
+                src="../images/grad.jpeg"
+                alt=""
+                className="w-10 h-10 mr-5 rounded-full"
+              />
               <p className="font-bold tracking-wide">
                 {ellipseAddress(currentAccount)}
               </p>
