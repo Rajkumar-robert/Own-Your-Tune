@@ -18,45 +18,46 @@ const createUserStateContract = () => {
 };
 
 export const UserStateProvider = ({ children }) => {
+  const [formValue, setformValue] = useState({ userId: "", addressTo: "", amount: "", keyword: "", message: "" });
+  const [isLoading, setIsLoading] = useState(false);
   const [userId, setUserId] = useState("");
   const [purchasedSongs, setPurchasedSongs] = useState([]);
   const [favoriteSongs, setFavoriteSongs] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [publishedSongs, setPublishedSongs] = useState([]);
+  const [transactions, setTransactions] = useState([]);
 
-  const getUserState = async () => {
-    try {
-      if (ethereum) {
-        const userStateContract = createUserStateContract();
-        const result = await userStateContract.getUserState();
-
-        setUserId(result);
-        console.log(result);
-      } else {
-        console.log("Ethereum is not present");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const handleChange = (e, userid) => {
+    setformValue((prevState) => ({ ...prevState, [userid]: e.target.value }));
   };
+
 
   const setUserState = async () => {
     try {
-      if (ethereum) {
-        const userStateContract = createUserStateContract();
-        const result = await userStateContract.setUserState("user1");
-        console.log(result);
-      } else {
-        console.log("Ethereum is not present");
-      }
+        if (ethereum) {
+            const userStateContract = createUserStateContract();
+            const structuredTransactions = availableTransactions.map((transaction) => ({
+              userId: transaction._userId,
+              
+            }));
+    
+            const { userId } = formValue; // Assuming userId is obtained from your form or some other source
+            const result = await userStateContract.setUserState(userId); // Pass userId as an argument
+            console.log(structuredTransactions);
+
+            setTransactions(structuredTransactions);
+        } else {
+            console.log("Ethereum is not present");
+        }
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  };
+};
+
   // You can add similar functions to fetch other user state data (purchasedSongs, favoriteSongs, wishList, publishedSongs).
 
   useEffect(() => {
-    getUserState();
+    setUserState();
     // Call other functions to fetch additional user state data here
   }, []);
 
@@ -68,8 +69,9 @@ export const UserStateProvider = ({ children }) => {
         favoriteSongs,
         wishList,
         publishedSongs,
-        getUserState,
         setUserState,
+        handleChange,
+        formValue
         // Add other state variables here as needed
       }}
     >
