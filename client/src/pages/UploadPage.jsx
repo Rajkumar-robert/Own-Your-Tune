@@ -1,83 +1,113 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Layout from "./Layout";
 import PurchaseMusicCard from "../components/PurchaseMusicCard";
 import FileUploadIPFS from "../components/FileUploadIPFS";
+import { TransactionContext } from "../context/TransactionContext";
+import { UserStateContext } from "../context/UserStateContext";
 
-const musicData = [
-  {
-    title: "HALSEY ft. Chainsmokers",
-    imageUrl: "closer.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "shape.png",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "beatit.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "borntodie.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "meatloaf.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "paradise.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "perry.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "rebirth.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "starboy.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "taylor.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "youth.jpeg",
-  },
-  {
-    title: "Shape of You ft. Ed Sheeran",
-    imageUrl: "desp.jpeg",
-  },
-];const UploadPage = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    songName: "",
-    songGenre: "",
-    artist: "",
-  });
 
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
+  
+const Input = ({ type, value, handleChange }) => (
+  <input
+    type={type}
+    step="0.0001"
+    value={value}
+    onChange={handleChange}
+    className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+  />
+);
 
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
+const UploadPage = () => {
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const musicData = [
+    {
+      title: "HALSEY ft. Chainsmokers",
+      imageUrl: "closer.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "shape.png",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "beatit.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "borntodie.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "meatloaf.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "paradise.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "perry.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "rebirth.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "starboy.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "taylor.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "youth.jpeg",
+    },
+    {
+      title: "Shape of You ft. Ed Sheeran",
+      imageUrl: "desp.jpeg",
+    },
+  ];
+  
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [formData, setFormData] = useState({
+      songName: "",
+      songGenre: "",
+      artist: "",
+    });
+  
+    const handleOpenPopup = () => {
+      setIsPopupOpen(true);
+    };
+  
+    const handleClosePopup = () => {
+      setIsPopupOpen(false);
+    };
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+    };
+  
+    const handlePublishSong = () => {
+      // Handle publishing the song here.
+      console.log("Song data:", formData);
+      handleClosePopup();
+      handleSubmit();
+    };
+  
+  const { setUserState, handleChange, formValue } = useContext(UserStateContext);
+console.log("sss",formValue);
+  const handleSubmit = (e) => {
+    const { } = formValue; // Corrected property name to userId
 
-  const handlePublishSong = () => {
-    // Handle publishing the song here.
-    console.log("Song data:", formData);
-    handleClosePopup();
+    e.preventDefault();
+
+    if (!userId) return;
+
+    setUserState();
   };
 
   return (
@@ -113,7 +143,7 @@ const musicData = [
             <FileUploadIPFS/>
             <label className="block mb-2">
               Song Name:
-              <input
+              <Input
                 type="text"
                 name="songName"
                 value={formData.songName}
@@ -123,7 +153,7 @@ const musicData = [
             </label>
             <label className="block mb-2">
               Song Genre:
-              <input
+              <Input
                 type="text"
                 name="songGenre"
                 value={formData.songGenre}
@@ -133,7 +163,7 @@ const musicData = [
             </label>
             <label className="block mb-2">
               Artist:
-              <input
+              <Input
                 type="text"
                 name="artist"
                 value={formData.artist}
