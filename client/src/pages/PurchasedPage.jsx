@@ -36,7 +36,105 @@ const PurchasedPage = () => {
   //   getPurchasedSongs();
   // }, []); // The empty dependency array ensures this effect runs once when the component mounts
 
-  
+  const musicData = [
+    {
+      title: "Closer",
+      imageUrl: "closer.jpeg",
+      price: 7,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Halsey ft. Chainsmokers",
+    },
+    {
+      title: "Shape of You",
+      imageUrl: "shape.png",
+      price: 3,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Ed Sheeran",
+    },
+    {
+      title: "Beat it",
+      imageUrl: "beatit.jpeg",
+      price: 8,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Michael Jackson",
+    },
+    {
+      title: "Born To Die",
+      imageUrl: "borntodie.jpeg",
+      price: 7,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Lana Del Rey",
+    },
+    {
+      title: "Meat Loaf",
+      imageUrl: "meatloaf.jpeg",
+      price: 7,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Rock",
+      songArtist: "Meat Loaf",
+    },
+    {
+      title: "Paradise",
+      imageUrl: "paradise.jpeg",
+      price: 7,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Coldplay",
+    },
+    {
+      title: "Dark Horse",
+      imageUrl: "perry.jpeg",
+      price: 7,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Katy Perry",
+    },
+    {
+      title: "Rebirth",
+      imageUrl: "rebirth.jpeg",
+      price: 5,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Rock",
+      songArtist: "Red Hot Chili Peppers",
+    },
+    {
+      title: "Starboy",
+      imageUrl: "starboy.jpeg",
+      price: 6,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "R&B",
+      songArtist: "The Weeknd",
+    },
+    {
+      title: "1989",
+      imageUrl: "taylor.jpeg",
+      price: 4,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Taylor Swift",
+    },
+    {
+      title: "Youth",
+      imageUrl: "youth.jpeg",
+      price: 3,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Pop",
+      songArtist: "Troye Sivan",
+    },
+    {
+      title: "Despacito",
+      imageUrl: "desp.jpeg",
+      price: 5,
+      artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+      songGenre: "Reggaeton",
+      songArtist: "Luis Fonsi ft. Daddy Yankee",
+    },
+  ];
+
 
   return (
     <Layout>
@@ -48,12 +146,13 @@ const PurchasedPage = () => {
         </div>
 
         <div className="grid grid-cols-3 ">
-          {purchasedSongs.map((song, index) => (
+          {musicData.map((song, index) => (
             <PurchaseMusicCard
               key={index}
-              title={song.songName}
+              title={song.title}
               imageUrl={song.imageUrl} // Assuming your contract returns an image URL
-              artist={song.artist}
+              artist={song.songArtist}
+              price={song.price}
               songGenre={song.songGenre}
               // Include additional song details as needed
             />
