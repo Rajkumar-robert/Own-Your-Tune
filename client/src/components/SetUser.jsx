@@ -14,9 +14,8 @@ const Input = ({ type, value, handleChange }) => (
 
 const SetUser = () => {
   const { setUserState, handleChange, formValue } = useContext(UserStateContext);
-console.log("sss",formValue);
   const handleSubmit = (e) => {
-    const { userId } = formValue; // Corrected property name to userId
+    const { userId } = formValue; 
 
     e.preventDefault();
 
@@ -29,7 +28,7 @@ console.log("sss",formValue);
     <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
       <Input placeholder="userid" type="text" handleChange={(e) => handleChange(e, "userId")} />
 
-      <div className="h-[1px] w-full bg-gray-400 my-2" />
+      <div className="h-[2px] w-full bg-gray-400 my-2" />
 
       <button
         type="button"
