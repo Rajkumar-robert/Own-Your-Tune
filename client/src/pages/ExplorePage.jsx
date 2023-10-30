@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "./Layout";
 import MusicCard from "../components/MusicCard";
 
@@ -68,17 +68,33 @@ const musicData = [
 ];
 
 const ExplorePage = () => {
+  const [copiedArtistAddress, setCopiedArtistAddress] = useState(null);
+
+  const copyArtistAddress = (artistAddress) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = artistAddress;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+
+    setCopiedArtistAddress(artistAddress);
+  };
+
   return (
     <Layout>
       <div className="grid grid-cols-4 relative top-[100px]">
         {musicData.map((music, index) => (
-          <MusicCard
-            key={index}
-            title={music.title}
-            imageUrl={music.imageUrl}
-            songPrice ={music.price}
-            artistAddress = {music.artistAddress}
-          />
+          <div key={index}>
+            <MusicCard
+              title={music.title}
+              imageUrl={music.imageUrl}
+              songPrice={music.price}
+              artistAddress={music.artistAddress}
+              
+            />
+            
+          </div>
         ))}
       </div>
     </Layout>

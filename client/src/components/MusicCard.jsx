@@ -5,6 +5,7 @@ import { TransactionContext } from "../context/TransactionContext";
 
 const MusicCard = (props) => {
   const [showDetails, setShowDetails] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const Input = ({ placeholder, name, type, value, handleChange }) => (
     <input
       placeholder={placeholder}
@@ -40,6 +41,16 @@ const MusicCard = (props) => {
     if (!addressTo || !amount || !keyword || !message) return;
     console.log("clicked");
     sendTransaction();
+  };
+
+  const copyToClipboard = (text) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+    setIsCopied(true);
   };
 
   return (
@@ -97,13 +108,20 @@ const MusicCard = (props) => {
 
             <div className="mt-3">
               <Link to={"/buy"}>
-                <div
-                  className="bg-blue-500 text-white px-3 py-1 rounded mr-2"
-                  
-                >
+                <div className="bg-blue-500 text-white px-3 py-1 rounded mr-2">
                   Buy
                 </div>
               </Link>
+              <button
+                className={`bg-green-500 text-white px-3 py-1 rounded mr-2 ${
+                  isCopied ? "bg-gray-500" : ""
+                }`}
+                onClick={() => {
+                  copyToClipboard(props.artistAddress);
+                }}
+              >
+                {isCopied ? "Copied" : "Copy Address"}
+              </button>
               <button className="bg-green-500 text-white px-3 py-1 rounded">
                 Wishlist
               </button>

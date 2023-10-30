@@ -8,7 +8,7 @@ import { UserStateProvider } from "./context/UserStateContext";
 import "./index.css";
 
 ReactDOM.render(
-  <TransactionsProvider>
+    <TransactionsProvider>
     <UserStateProvider>
     <App />
     </UserStateProvider>
