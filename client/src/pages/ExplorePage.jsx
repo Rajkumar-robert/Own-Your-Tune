@@ -13,31 +13,37 @@ const musicData = [
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "shape.png",
     price: 3,
+    artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
   },
   {
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "beatit.jpeg",
     price: 8,
+    artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
   },
   {
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "borntodie.jpeg",
     price: 7,
+    artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
   },
   {
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "meatloaf.jpeg",
     price: 7,
+    artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
   },
   {
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "paradise.jpeg",
     price: 7,
+    artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
   },
   {
     title: "Shape of You ft. Ed Sheeran",
     imageUrl: "perry.jpeg",
     price: 7,
+    artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
   },
   {
     title: "Shape of You ft. Ed Sheeran",

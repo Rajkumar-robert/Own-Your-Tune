@@ -66,7 +66,7 @@ const Welcome = () => {
               </div>
               <div className={companyCommonStyles}>Security</div>
               <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>
-                Ethereum
+                XDC
               </div>
               <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
                 Web 3.0
@@ -92,20 +92,20 @@ const Welcome = () => {
                     {shortenAddress(currentAccount)}
                   </p>
                   <p className="text-white font-semibold text-lg mt-1">
-                    Ethereum
+                    XDC
                   </p>
                 </div>
               </div>
             </div>
             <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
               <Input
-                placeholder="Address To"
+                placeholder="Enter Artist Address "
                 name="addressTo"
                 type="text"
                 handleChange={handleChange}
               />
               <Input
-                placeholder="Amount (ETH)"
+                placeholder="Amount (XDC)"
                 name="amount"
                 type="number"
                 handleChange={handleChange}
