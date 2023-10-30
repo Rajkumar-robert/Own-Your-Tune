@@ -14,57 +14,106 @@ const Input = ({ type, value, handleChange }) => (
 );
 
 const UploadPage = () => {
-  const musicData = [
-    {
-      title: "HALSEY ft. Chainsmokers",
-      imageUrl: "closer.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "shape.png",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "beatit.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "borntodie.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "meatloaf.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "paradise.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "perry.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "rebirth.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "starboy.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "taylor.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "youth.jpeg",
-    },
-    {
-      title: "Shape of You ft. Ed Sheeran",
-      imageUrl: "desp.jpeg",
-    },
-  ];
-  
+ const musicData = [
+   {
+     title: "Closer",
+     imageUrl: "closer.jpeg",
+     price: 7,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "HALSEY ft. Chainsmokers",
+   },
+   {
+     title: "Shape of You",
+     imageUrl: "shape.png",
+     price: 3,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Ed Sheeran",
+   },
+   {
+     title: "Beat it",
+     imageUrl: "beatit.jpeg",
+     price: 8,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Michael Jackson",
+   },
+   {
+     title: "Born To Die",
+     imageUrl: "borntodie.jpeg",
+     price: 7,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Lana Del Rey",
+   },
+   {
+     title: "Meat Loaf",
+     imageUrl: "meatloaf.jpeg",
+     price: 7,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Rock",
+     songArtist: "Meat Loaf",
+   },
+   {
+     title: "Paradise",
+     imageUrl: "paradise.jpeg",
+     price: 7,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Coldplay",
+   },
+   {
+     title: "Dark Horse",
+     imageUrl: "perry.jpeg",
+     price: 7,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Katy Perry",
+   },
+   {
+     title: "Rebirth",
+     imageUrl: "rebirth.jpeg",
+     price: 5,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Rock",
+     songArtist: "Red Hot Chili Peppers",
+   },
+   {
+     title: "Starboy",
+     imageUrl: "starboy.jpeg",
+     price: 6,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "R&B",
+     songArtist: "The Weeknd",
+   },
+   {
+     title: "1989",
+     imageUrl: "taylor.jpeg",
+     price: 4,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Taylor Swift",
+   },
+   {
+     title: "Youth",
+     imageUrl: "youth.jpeg",
+     price: 3,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Pop",
+     songArtist: "Troye Sivan",
+   },
+   {
+     title: "Despacito",
+     imageUrl: "desp.jpeg",
+     price: 5,
+     artistAddress: "0xeD89087BEc7Df554BFe6EA9867f170E70ccf0697",
+     songGenre: "Reggaeton",
+     songArtist: "Luis Fonsi ft. Daddy Yankee",
+   },
+ ];
+
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [formData, setFormData] = useState({
     songName: "",
@@ -94,12 +143,12 @@ const UploadPage = () => {
   return (
     <Layout>
       <div className="flex flex-col relative top-[100px] w-[1300px]">
-        <div className="flex justify between">
+        <div className="flex justify between items-center">
           <p className="text-white text-6xl font-extrabold ml-10 mt-10">
             Purchased Songs & Albums
           </p>
           <button
-            className="px-3 py-2 text-white mr-10"
+            className="px-3 py-2 text-white mt-10 ml-8 text-xl border"
             onClick={handleOpenPopup}
           >
             Publish Song
