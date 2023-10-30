@@ -5,8 +5,8 @@ async function main() {
   deployer.address
   );
   console.log('Account balance:', (await deployer.getBalance()).toString());
-  const UserStateContract = await ethers.getContractFactory('UserStateContract');
-  const contract = await UserStateContract.deploy();
+  const Transactions = await ethers.getContractFactory('Transactions');
+  const contract = await Transactions.deploy();
   console.log('Contract deployed at:', contract.address);
   }
   main()
