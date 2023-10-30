@@ -45,7 +45,11 @@ const Welcome = () => {
               Enjoy your Music <br /> and support the Artists
             </h1>
             <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
+<<<<<<< HEAD
               XDC and WAN tokens are supported.
+=======
+              XDC and WAN tokens supported 
+>>>>>>> ed411ea97937aee18b09e9422326f0fa152dfc72
             </p>
             {!currentAccount && (
               <button
