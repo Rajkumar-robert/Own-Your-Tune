@@ -143,7 +143,6 @@ export const TransactionsProvider = ({ children }) => {
     checkIfTransactionsExists();
   }, [transactionCount]);
 
-  
   return (
     <TransactionContext.Provider
       value={{
